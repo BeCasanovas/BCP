@@ -1,0 +1,4 @@
+data;registros;negociacoes;colunas_divergentes
+16/5/2025;{'data': '16/5/2025', 'emissor': 'CLARO S/A', 'quantidade': 515, 'numero_de_negocios': 6};{'data': '16/5/2025', 'emissor': 'CLARO S/A', 'quantidade': 512, 'numero_de_negocios': 6};quantidade
+8/5/2025;{'data': '8/5/2025', 'emissor': 'CLARO S/A', 'quantidade': 5468, 'numero_de_negocios': 14};{'data': '8/5/2025', 'emissor': 'CLARO S/A', 'quantidade': 5468, 'numero_de_negocios': 8};numero_de_negocios
+30/4/2025;{'data': '30/4/2025', 'emissor': 'CLARO S/A', 'quantidade': 1700, 'numero_de_negocios': 12};{'data': '30/4/2025', 'emissor': 'CLARO S/A', 'quantidade': 1612, 'numero_de_negocios': 12};quantidade

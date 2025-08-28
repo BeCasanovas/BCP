@@ -21,5 +21,30 @@ normalizar_colunas(negociacoes)
 registros = registros[colunas]
 negociacoes = negociacoes[colunas]
 
-print(registros)
-print(negociacoes)
+#Verificando as divergências
+divergencias = []
+datas = pd.unique(registros['data'].tolist() + negociacoes['data'].tolist())
+
+for data in datas:
+    try:
+        reg_row = registros[registros['data'] == data].iloc[0]
+        neg_row = negociacoes[negociacoes['data'] == data].iloc[0]
+        col_div = [col for col in registros.columns if reg_row[col] != neg_row[col]]
+        if col_div:
+            divergencias.append({
+                'data': data,
+                'registros': reg_row.to_dict(),
+                'negociacoes': neg_row.to_dict(),
+                'colunas_divergentes': ','.join(col_div)
+            })
+    except Exception:
+        divergencias.append({
+            'data': data,
+            'registros': data in registros['data'].values,
+            'negociacoes': data in negociacoes['data'].values,
+            'colunas_divergentes': ''
+        })
+
+divergencias_df = pd.DataFrame(divergencias)
+print(divergencias_df)
+divergencias_df.to_csv('files/Divergencias_Negociacoes_BCPSA4.csv', sep=';', index=False)
